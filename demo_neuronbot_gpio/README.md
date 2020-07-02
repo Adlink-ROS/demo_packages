@@ -1,7 +1,12 @@
 # NeuronBot GPIO Demo
 This package performs two examples, "LED Blink" and "Push the Button" of GPIO on NeuronBot. In LED Blink, there is a publisher publishes the command to control the LED. Also, there is a subscriber subscribes the data to turn on or turn off the LED by setting the voltage of the pin. On the other hand, in Push the Button, there is a service named "sema_gpio". To get the status of the button, run the sema_client to call the service and run the sema_server to provide the data.
 
-In this two examples, we use SEMA library to control the GPIO of ROS Starter Kit. Please refer to [ADLINK SEMA](https://www.adlinktech.com/Products/Industrial_IoT_and_Cloud_solutions/SEMA_Smart_Embedded_Management_Agent/SEMA?lang=en) for fully installation and setup of SEMA. Futhermore, for GPIO pin layout of ROS Starter Kit, please review the section of 4.2.13 Feature Connector of user maual of [ADLINK Embedded Boards](https://www.adlinktech.com/Products/Industrial_Motherboards_SBCs/Mini-ITXEmbeddedBoards/AmITX-SL-G?lang=en). 
+
+The GPIO pin layout of the ROS Starter Kit was set as followed:
+![](readme_resource/feature_connector.jpg)
+
+
+In this two examples, we use SEMA library to control the GPIO of ROS Starter Kit. Please refer to [ADLINK SEMA](https://www.adlinktech.com/Products/Industrial_IoT_and_Cloud_solutions/SEMA_Smart_Embedded_Management_Agent/SEMA?lang=en) for fully installation and setup of SEMA. Futhermore, for GPIO pin layout of ROS Starter Kit, please review the user maual of [ADLINK Embedded Boards](https://www.adlinktech.com/Products/Industrial_Motherboards_SBCs/Mini-ITXEmbeddedBoards/AmITX-SL-G?lang=en). 
 
 
 Now, we support the following verion, you can checkout to these branch.
