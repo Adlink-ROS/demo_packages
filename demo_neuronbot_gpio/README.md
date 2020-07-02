@@ -4,7 +4,7 @@ This package performs two examples, "LED Blink" and "Push the Button" of GPIO on
 
 
 The GPIO pin layout of the ROS Starter Kit was set as followed:
-![](readme_resource/feature_connector.gif)
+![](readme_resource/feature_connector.jpg)
 
 
 
