@@ -85,6 +85,7 @@ GPIO ID: 9
     ros2 run demo_neuronbot_gpio sema_server
     ```
 ![](readme_resource/button_ros2.gif)
+![](readme_resource/test.gif)
 
 
 
