@@ -1,0 +1,5 @@
+string gpio
+---
+int32 ret
+int32 level
+uint32 result

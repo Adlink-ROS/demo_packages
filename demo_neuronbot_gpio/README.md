@@ -1,5 +1,5 @@
 # NeuronBot GPIO Demo
-This package performs two examples, "LED Blink" and "Push the Button" of GPIO on NeuronBot. In LED Blink, there is a publisher publishes the command to control the LED. Also, there is a subscriber subscribes the data to turn on or turn off the LED by setting the voltage of the pin. In Push the Button, there is a publisher publishes the voltage of pin of the button. When subscriber subscribes the data, it will show that whether the user is pushing the button or not.
+This package performs two examples, "LED Blink" and "Push the Button" of GPIO on NeuronBot. In LED Blink, there is a publisher publishes the command to control the LED. Also, there is a subscriber subscribes the data to turn on or turn off the LED by setting the voltage of the pin. On the other hand, in Push the Button, there is a service named "sema_gpio". To get the status of the button, run the sema_client to call the service and run the sema_server to provide the data.
 
 In this two examples, we use SEMA library to control the GPIO of ROS Starter Kit. Please refer to [ADLINK SEMA](https://www.adlinktech.com/Products/Industrial_IoT_and_Cloud_solutions/SEMA_Smart_Embedded_Management_Agent/SEMA?lang=en) for fully installation and setup of SEMA. Futhermore, for GPIO pin layout of ROS Starter Kit, please review the section of 4.2.13 Feature Connector of user maual of [ADLINK Embedded Boards](https://www.adlinktech.com/Products/Industrial_Motherboards_SBCs/Mini-ITXEmbeddedBoards/AmITX-SL-G?lang=en). 
 
@@ -9,66 +9,25 @@ Now, we support the following verion, you can checkout to these branch.
 - ROS 2 dashing
 
 
-## ROS1
+## ROS2
 ### Example 1 : LED Blink
 GPIO ID: 7
 
 * Terminal 1
-1. Source the environment
-    ```
-    source /opt/ros/melodic/setup.bash
-    ```
-2. Launch the roscore
-    ```
-    roscore
-    ```
-
-* Terminal 2
 1. Open a root session
     ```
     sudo su
     ```
 2. Source the enviornment
     ```
-    cd /home/USER/neuronbot_demo_ros1_ws/
-    source /opt/ros/melodic/setup.bash
+    cd /home/USER/neuronbot_demo_ros2_ws/
+    source /opt/ros/dashing/setup.bash
     export LD_LIBRARY_PATH=/usr/local/SEMA/lib/:$LD_LIBRARY_PATH
-    source devel/setup.bash
+    source install/local_setup.bash
     ```
 3. Run the subscriber to subsrcibe data from the topic, led_blink.
     ```
-    rosrun demo_neuronbot_gpio led_sub
-    ```
-
-* Terminal 3
-1. Source the enviornment
-    ```
-    cd ~/neuronbot_demo_ros1_ws/
-    source /opt/ros/melodic/setup.bash
-    source devel/setup.bash
-    ```
-2. Publish data to the topic, led_blink, to turn on the LED.
-    ```
-    rostopic pub /led_blink std_msgs/Int32 1
-    ```
-3. Publish data to the topic, led_blink, to turn off the LED.
-    ```
-    rostopic pub /led_blink std_msgs/Int32 0
-    ```
-
-### Example 2 :  Push the button
-GPIO ID: 9
-
-* Terminal 1
-1. Source the environment
-    ```
-    cd ~/neuronbot_demo_ros1_ws/
-    source /opt/ros/melodic/setup.bash
-    source devel/setup.bash
-    ```
-2. Launch the roscore
-    ```
-    roscore
+    ros2 run demo_neuronbot_gpio led_sub
     ```
 
 * Terminal 2
@@ -78,31 +37,54 @@ GPIO ID: 9
     ```
 2. Source the enviornment
     ```
-    cd /home/USER/neuronbot_demo_ros1_ws/
-    source /opt/ros/melodic/setup.bash
+    cd /home/USER/neuronbot_demo_ros2_ws/
+    source /opt/ros/dashing/setup.bash
     export LD_LIBRARY_PATH=/usr/local/SEMA/lib/:$LD_LIBRARY_PATH
-    source devel/setup.bash
+    source install/local_setup.bash
     ```
-3. Run the subscriber to subsrcibe data from the topic, button_push.
+3. Publish random number of 0 and 1 to the topic, led_blink. 
     ```
-    rosrun demo_neuronbot_gpio button_pub
+    ros2 run demo_neuronbot_gpio led_pub
     ```
+![](readme_resource/led_ros2.jpg)
 
-* Terminal 3
+### Example 2 : Push the button
+GPIO ID: 9
+
+* Terminal 1
 1. Open a root session
     ```
     sudo su
     ```
 2. Source the enviornment
     ```
-    cd /home/USER/neuronbot_demo_ros1_ws/
-    source /opt/ros/melodic/setup.bash
+    cd /home/USER/neuronbot_demo_ros2_ws/
+    source /opt/ros/dashing/setup.bash
     export LD_LIBRARY_PATH=/usr/local/SEMA/lib/:$LD_LIBRARY_PATH
-    source devel/setup.bash
+    source install/local_setup.bash
     ```
-3. Run the subscriber to subsrcibe data from the topic, button_push.
+3. Run the client to call the service, sema_gpio.
     ```
-    rosrun demo_neuronbot_gpio button_sub
+    ros2 run demo_neuronbot_gpio sema_client get
     ```
+
+* Terminal 2
+1. Open a root session
+    ```
+    sudo su
+    ```
+2. Source the enviornment
+    ```
+    cd /home/USER/neuronbot_demo_ros2_ws/
+    source /opt/ros/dashing/setup.bash
+    export LD_LIBRARY_PATH=/usr/local/SEMA/lib/:$LD_LIBRARY_PATH
+    source install/local_setup.bash
+    ```
+3. Run the server to provide data called by client.
+    ```
+    ros2 run demo_neuronbot_gpio sema_server
+    ```
+![](readme_resource/button_ros2.jpg)
+
 
 
