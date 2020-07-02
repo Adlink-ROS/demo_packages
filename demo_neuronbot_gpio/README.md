@@ -55,7 +55,7 @@ GPIO ID: 7
     ```
     rostopic pub /led_blink std_msgs/Int32 0
     ```
-![](readme_resource/led_blink_ros1.jpg)
+![](readme_resource/led_ros1.jpg)
 
 ### Example 2 :  Push the button
 GPIO ID: 9
