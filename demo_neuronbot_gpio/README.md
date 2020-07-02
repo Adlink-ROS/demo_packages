@@ -46,7 +46,7 @@ GPIO ID: 7
     ```
     ros2 run demo_neuronbot_gpio led_pub
     ```
-![](readme_resource/led_ros2.jpg)
+![](readme_resource/led_ros2.gif)
 
 ### Example 2 : Push the button
 GPIO ID: 9
@@ -85,7 +85,5 @@ GPIO ID: 9
     ros2 run demo_neuronbot_gpio sema_server
     ```
 ![](readme_resource/button_ros2.gif)
-![](readme_resource/test.gif)
-
 
 
