@@ -2,7 +2,7 @@
 This package performs two examples, "LED Blink" and "Push the Button" of GPIO on NeuronBot. In LED Blink, there is a publisher publishes the command to control the LED. Also, there is a subscriber subscribes the data to turn on or turn off the LED by setting the voltage level of the pin. On the other hand, in Push the Button, there is a service named "sema_gpio". When the client calling the service, the server will provide the voltage level of the pin and distinguish whether the button is pushed or not.
 
 
-The GPIO pin layout of the ROS Starter Kit was set as followed:
+The GPIO pin layout of the ROS Starter Kit was set as follow:
 ![](readme_resource/feature_connector.jpg)
 
 
